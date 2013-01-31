@@ -25,15 +25,15 @@ Typically there is a strong connection between using lsystem rules and turtle gr
 Uses an LSystem to build and then Turtle to apply the rules for a Gosper Flowsnake with two iterations, a two dimensional spacefilling fractal.
 
 Syntax
-F  : draw and move one unit vector forward
-+  : turn right
--  : turn left
-&  : pitch up
-^  : pitch down
-<  : roll right
->  : roll left
-|  : reverse vector direction
-[  : push current pen position
-]  : pop current position
+F: draw and move one unit vector forward
++: turn right
+-: turn left
+&: pitch up
+^: pitch down
+<: roll right
+>: roll left
+|: reverse vector direction
+[: push current pen position
+]: pop current position
 
 More

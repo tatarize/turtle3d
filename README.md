@@ -7,8 +7,11 @@ Forward, turn right, forward, turn left, about face, forward.
 
 
 Usage
+
+
         var turtle = require('turtle3d');
         var coords = turtle("^<XF^<XFX-F^>>XFX&F+>>XFX-F>X->", 90 * (Math.PI / 180));
+
 
 Typically there is a strong connection between using lsystem rules and turtle graphics in either 2 or 3 dimensions.
 

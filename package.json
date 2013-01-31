@@ -1,0 +1,20 @@
+{
+  "name": "turtle3d",
+  "version": "0.0.1",
+  "description": "3D Turtle Graphics Library.",
+  "preferGlobal": "false",
+  "main": "index.js",
+  "author": "",
+  "keywords": [
+    "lsystem",
+    "fractal",
+    "turtle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tatarize/turtle3d.js.git"
+  },
+  "engines": {
+    "node": "*"
+  }
+}

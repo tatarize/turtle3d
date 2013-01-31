@@ -46,5 +46,5 @@ Syntax
 With [npm](https://npmjs.org) do:
 
 ```
-npm install voxel-forest
+npm install turtle3d
 ```

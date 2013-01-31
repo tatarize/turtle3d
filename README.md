@@ -13,7 +13,7 @@ Usage
         var coords = turtle("^<XF^<XFX-F^>>XFX&F+>>XFX-F>X->", 90 * (Math.PI / 180));
 
 
-Typically there is a strong connection between using lsystem rules and turtle graphics in either 2 or 3 dimensions.
+Typically there is a strong connection between using L-system or Lindenmayer system and turtle graphics in either 2 or 3 dimensions.
 
         var fractal = require('lsys');
         var lsystem = fractal("L", {
@@ -40,4 +40,11 @@ Syntax
         [: push current pen position
         ]: pop current position
 
-More
+
+# install
+
+With [npm](https://npmjs.org) do:
+
+```
+npm install voxel-forest
+```

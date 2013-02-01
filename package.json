@@ -1,6 +1,6 @@
 {
   "name": "turtle3d",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "3D Turtle Graphics Library.",
   "preferGlobal": "false",
   "main": "index.js",

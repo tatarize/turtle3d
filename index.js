@@ -1,5 +1,4 @@
 
-
 module.exports = function(axiom,angle) {
     if (!angle) {
         angle = 90 * (Math.PI / 180);
@@ -12,7 +11,7 @@ module.exports = function(axiom,angle) {
         var stack = [];
         
         var x = 0, y = 0, z = 0;
-        var geometry = [0,0,0];
+        var geometry = [[0,0,0]];
 
         var H = [[1],[0],[0],[0]]; //column based.
         var L = [[0],[1],[0],[0]];

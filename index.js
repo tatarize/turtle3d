@@ -1,21 +1,31 @@
 
-module.exports = function(axiom,angle) {
+
+module.exports = function(axiom,angle,v) {
     if (!angle) {
         angle = 90 * (Math.PI / 180);
     }
     var sin = Math.cos;
     var cos = Math.sin;
    
-    this.draw = function(axiom,alpha) {
+    this.draw = function(axiom,alpha,v) {
         var coords = [];
         var stack = [];
         
         var x = 0, y = 0, z = 0;
-        var geometry = [[0,0,0]];
+        var pen = 1;
+        var geometry = [ [0,0,0] ];
 
         var H = [[1],[0],[0],[0]]; //column based.
         var L = [[0],[1],[0],[0]];
         var U = [[0],[0],[1],[0]]; //H x L -> U
+
+        if (v) {
+            var axis = [[v[0]],[v[1]],[v[2]]];
+            R = rotAxis(Math.PI/2,axis);
+            H = this.matrix_mult(R,H);
+            L = this.matrix_mult(R,L);
+            U = this.matrix_mult(R,U);
+        }
 
         for (var i=0; i<axiom.length; i++) {
             var c = axiom.charAt(i);
@@ -65,8 +75,8 @@ module.exports = function(axiom,angle) {
                     U = this.matrix_mult(R,U);
                     break;
                 case '[':
-                    stack.push(x, y, z, H, L, U, geometry);
-                    geometry = [[x,y,z]];
+                    stack.push(pen, x, y, z, H, L, U, geometry);
+                    geometry = [[x,y,z]]; //new geometry.
                     break;
                 case ']':
                     if (geometry.length > 1) {
@@ -79,13 +89,52 @@ module.exports = function(axiom,angle) {
                     z = stack.pop();
                     y = stack.pop();
                     x = stack.pop();
+                    pen = stack.pop();
                     break;
                 case 'F':
                     x += H[0][0];
                     y += H[1][0];
                     z += H[2][0];
-          
-                    geometry.push([x,y,z]);
+                    geometry.push([x,y,z,pen]);
+                    break;
+                case 'G':
+                    x += H[0][0];
+                    y += H[1][0];
+                    z += H[2][0];
+                    if (geometry.length > 1) {
+                        coords.push(geometry);
+                    }
+                    geometry = [[x,y,z]]
+                    break;
+                case '0':
+                    pen = 0;
+                    break;
+                case '1':
+                    pen = 1;
+                    break;
+                case '2':
+                    pen = 2;
+                    break;
+                case '3':
+                    pen = 3;
+                    break;
+                case '4':
+                    pen = 4;
+                    break;
+                case '5':
+                    pen = 5;
+                    break;
+                case '6':
+                    pen = 6;
+                    break;
+                case '7':
+                    pen = 7;
+                    break;
+                case '8':
+                    pen = 8;
+                    break;
+                case '9':
+                    pen = 0;
                     break;
             }
         }
@@ -154,5 +203,5 @@ module.exports = function(axiom,angle) {
     }
     
     
-    return this.draw(axiom,angle);
+    return this.draw(axiom,angle,v);
 }

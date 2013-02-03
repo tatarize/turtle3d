@@ -1,6 +1,6 @@
 {
   "name": "turtle3d",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "3D Turtle Graphics Library.",
   "preferGlobal": "false",
   "main": "index.js",
@@ -16,5 +16,13 @@
   },
   "engines": {
     "node": "*"
-  }
+  },
+  "readme": "Turtle 3D\n========\n\nIn Turtle Graphics, rather than a coordinate system we have a pen which follows a set of rules without any regard to it's current position or orientation.\n\nForward, turn right, forward, turn left, about face, forward.\n\n\nUsage\n\n\n        var turtle = require('turtle3d');\n        var coords = turtle(\"^<XF^<XFX-F^>>XFX&F+>>XFX-F>X->\", 90 * (Math.PI / 180));\n\n\nTypically there is a strong connection between using L-system or Lindenmayer system and turtle graphics in either 2 or 3 dimensions.\n\n        var fractal = require('lsys');\n        var lsystem = fractal(\"L\", {\n            \"L\": \"L+R++R-L--LL-R+\", \n            \"R\": \"-L+RR++R+L--L-R\"\n        }).iterate(2).apply({\"L\": \"F\",\"R\": \"F\"}); \n        \n        lsystem.debug();\n        var turtle = require('turtle3d');\n        var coords = turtle(lsystem.string(), 60 * (Math.PI / 180));\n        \nUses an LSystem to build and then Turtle to apply the rules for a Gosper Flowsnake with two iterations, a two dimensional spacefilling fractal.\n\nSyntax\n        \n        F: draw and move one unit vector forward\n        +: turn right\n        -: turn left\n        &: pitch up\n        ^: pitch down\n        <: roll right\n        >: roll left\n        |: reverse vector direction\n        [: push current pen position\n        ]: pop current position\n\n\n# install\n\nWith [npm](https://npmjs.org) do:\n\n```\nnpm install turtle3d\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "turtle3d@0.0.4",
+  "_from": "turtle3d@0.0.4",
+  "dist": {
+    "shasum": "30c247bc995cfcc8b62cb4ca9b8c430a26615c57"
+  },
+  "_resolved": "https://registry.npmjs.org/turtle3d/-/turtle3d-0.0.4.tgz"
 }

@@ -13,7 +13,7 @@ module.exports = function(axiom,angle,v) {
         
         var x = 0, y = 0, z = 0;
         var pen = 1;
-        var geometry = [ [0,0,0] ];
+        var geometry = [];
 
         var H = [[1],[0],[0],[0]]; //column based.
         var L = [[0],[1],[0],[0]];
@@ -76,7 +76,7 @@ module.exports = function(axiom,angle,v) {
                     break;
                 case '[':
                     stack.push(pen, x, y, z, H, L, U, geometry);
-                    geometry = [[x,y,z]]; //new geometry.
+                    geometry = []; //new geometry.
                     break;
                 case ']':
                     if (geometry.length > 1) {
@@ -92,19 +92,19 @@ module.exports = function(axiom,angle,v) {
                     pen = stack.pop();
                     break;
                 case 'F':
+                    geometry.push([x,y,z,pen]);
                     x += H[0][0];
                     y += H[1][0];
                     z += H[2][0];
-                    geometry.push([x,y,z,pen]);
                     break;
                 case 'G':
                     x += H[0][0];
                     y += H[1][0];
                     z += H[2][0];
-                    if (geometry.length > 1) {
+                    if (geometry.length > 0) {
                         coords.push(geometry);
                     }
-                    geometry = [[x,y,z]]
+                    geometry = []
                     break;
                 case '0':
                     pen = 0;
